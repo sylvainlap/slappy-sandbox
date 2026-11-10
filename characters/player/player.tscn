@@ -14,8 +14,6 @@ height = 1.85
 radius = 0.45
 height = 1.85
 
-[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_jfg3o"]
-
 [node name="Player" type="CharacterBody3D" unique_id=2089337983]
 script = ExtResource("1_508ok")
 
@@ -40,8 +38,6 @@ target = NodePath("../CameraTarget")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="SmoothCamera" unique_id=16737038]
 unique_name_in_owner = true
-shape = SubResource("SeparationRayShape3D_jfg3o")
-spring_length = 4.0
 
 [node name="ThirdPersonCamera" type="Camera3D" parent="SmoothCamera/SpringArm3D" unique_id=98441394]
 unique_name_in_owner = true

@@ -51,8 +51,6 @@ var view: View = View.FIRST_PERSON:
 # Control the target length of the third person camera arm.
 var zoom: float = min_zoom:
 	set(value):
-		print(zoom)
-		print(value)
 		zoom = clamp(value, min_zoom, max_zoom)
 		if value < min_zoom:
 			# When the player zooms all the way in swap to first person.
@@ -62,7 +60,7 @@ var zoom: float = min_zoom:
 			view = View.THIRD_PERSON
 
 @onready var camera_target: Node3D = $CameraTarget
-@onready var camera: FirstPersonCamera = $SmoothCamera
+@onready var camera: SmoothCamera = $SmoothCamera
 @onready var spring_arm_3d: SpringArm3D = %SpringArm3D
 @onready var third_person_camera: Camera3D = %ThirdPersonCamera
 
