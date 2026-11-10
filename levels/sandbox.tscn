@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://djljna81xivkk"]
+
+[ext_resource type="Texture2D" uid="uid://dymol65gdd5hu" path="res://assets/textures/prototype-texture-with-size.png" id="1_wfhpi"]
+[ext_resource type="PackedScene" uid="uid://ckbqiv5ijbxmy" path="res://characters/player/player.tscn" id="2_whpuv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_poddw"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_wfhpi"]
+sky_material = SubResource("ProceduralSkyMaterial_poddw")
+
+[sub_resource type="Environment" id="Environment_whpuv"]
+background_mode = 2
+sky = SubResource("Sky_wfhpi")
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whpuv"]
+albedo_color = Color(0.5176471, 0.5176471, 0.5176471, 1)
+albedo_texture = ExtResource("1_wfhpi")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgomg"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jfg3o"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.5
+
+[node name="Sandbox" type="Node3D" unique_id=2077484860]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1774288518]
+environment = SubResource("Environment_whpuv")
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1856125527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+material_override = SubResource("StandardMaterial3D_whpuv")
+use_collision = true
+flip_faces = true
+size = Vector3(30, 10, 40)
+
+[node name="Lights" type="Node3D" parent="." unique_id=2109750935]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=2126610095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 10, 15)
+light_energy = 3.0
+light_specular = 0.25
+shadow_enabled = true
+shadow_blur = 1.5
+omni_range = 35.0
+omni_attenuation = 0.5
+
+[node name="LightOrb" type="MeshInstance3D" parent="Lights/OmniLight3D" unique_id=1979016311]
+material_override = SubResource("StandardMaterial3D_xgomg")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_jfg3o")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights" unique_id=2114115295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 10, 15)
+light_energy = 3.0
+light_specular = 0.25
+shadow_enabled = true
+shadow_blur = 1.5
+omni_range = 35.0
+omni_attenuation = 0.5
+
+[node name="LightOrb" type="MeshInstance3D" parent="Lights/OmniLight3D2" unique_id=1036921750]
+material_override = SubResource("StandardMaterial3D_xgomg")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_jfg3o")
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights" unique_id=1538627582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 10, -15)
+light_energy = 3.0
+light_specular = 0.25
+shadow_enabled = true
+shadow_blur = 1.5
+omni_range = 35.0
+omni_attenuation = 0.5
+
+[node name="LightOrb" type="MeshInstance3D" parent="Lights/OmniLight3D3" unique_id=2118253637]
+material_override = SubResource("StandardMaterial3D_xgomg")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_jfg3o")
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights" unique_id=1177235422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 10, -15)
+light_energy = 3.0
+light_specular = 0.25
+shadow_enabled = true
+shadow_blur = 1.5
+omni_range = 35.0
+omni_attenuation = 0.5
+
+[node name="LightOrb" type="MeshInstance3D" parent="Lights/OmniLight3D4" unique_id=1993172519]
+material_override = SubResource("StandardMaterial3D_xgomg")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_jfg3o")
+
+[node name="Player" parent="." unique_id=2089337983 instance=ExtResource("2_whpuv")]
