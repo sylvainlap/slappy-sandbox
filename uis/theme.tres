@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://bcllk5ml66hc7"]
+
+[ext_resource type="FontFile" uid="uid://d4imxotvsf7pw" path="res://assets/fonts/Play/Play-Regular.ttf" id="1_28x36"]
+
+[resource]
+default_font = ExtResource("1_28x36")
+default_font_size = 32

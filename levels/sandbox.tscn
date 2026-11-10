@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dymol65gdd5hu" path="res://assets/textures/prototype-texture-with-size.png" id="1_wfhpi"]
 [ext_resource type="PackedScene" uid="uid://ckbqiv5ijbxmy" path="res://characters/player/player.tscn" id="2_whpuv"]
+[ext_resource type="PackedScene" uid="uid://bked2k2vbcd8p" path="res://uis/user_interface.tscn" id="3_85hcc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_poddw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -101,3 +102,5 @@ cast_shadow = 0
 mesh = SubResource("CylinderMesh_jfg3o")
 
 [node name="Player" parent="." unique_id=2089337983 instance=ExtResource("2_whpuv")]
+
+[node name="UserInterface" parent="." unique_id=1641118479 instance=ExtResource("3_85hcc")]
