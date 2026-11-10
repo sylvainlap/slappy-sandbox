@@ -16,6 +16,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_iixo6")
 
+[node name="ColorRect" type="ColorRect" parent="PauseScreen" unique_id=1183531632]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.2784314, 0, 0.1764706)
+
 [node name="PauseContainer" type="CenterContainer" parent="PauseScreen" unique_id=2102179814]
 layout_mode = 1
 anchors_preset = 15
@@ -37,9 +46,89 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Resume"
 
+[node name="SettingsButton" type="Button" parent="PauseScreen/PauseContainer/VBoxContainer" unique_id=1440157848]
+layout_mode = 2
+text = "Settings"
+
 [node name="QuitButton" type="Button" parent="PauseScreen/PauseContainer/VBoxContainer" unique_id=1554974280]
 layout_mode = 2
 text = "Quit"
 
+[node name="SettingsContainer" type="MarginContainer" parent="PauseScreen" unique_id=699630273]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen/SettingsContainer" unique_id=177773127]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="PauseScreen/SettingsContainer/VBoxContainer" unique_id=1106415624]
+layout_mode = 2
+current_tab = 0
+
+[node name="Video" type="VBoxContainer" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer" unique_id=1949736919]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer/Video" unique_id=101388080]
+layout_mode = 2
+
+[node name="FullscreenContainer" type="HBoxContainer" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer/Video/MarginContainer" unique_id=832219233]
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer/Video/MarginContainer/FullscreenContainer" unique_id=1435050525]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
+
+[node name="FullscreenCheckButton" type="CheckButton" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer/Video/MarginContainer/FullscreenContainer" unique_id=664299568]
+layout_mode = 2
+
+[node name="Gameplay" type="VBoxContainer" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer" unique_id=799429173]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer/Gameplay" unique_id=1798534248]
+layout_mode = 2
+
+[node name="FOVContainer" type="HBoxContainer" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer/Gameplay/MarginContainer" unique_id=1657519422]
+layout_mode = 2
+
+[node name="FOVLabel" type="Label" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer/Gameplay/MarginContainer/FOVContainer" unique_id=1802947055]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FOV"
+
+[node name="FOVSlider" type="HSlider" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer/Gameplay/MarginContainer/FOVContainer" unique_id=416449876]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="FOVValueLabel" type="Label" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer/Gameplay/MarginContainer/FOVContainer" unique_id=875088766]
+unique_name_in_owner = true
+layout_mode = 2
+text = "XX"
+
+[node name="LAN" type="VBoxContainer" parent="PauseScreen/SettingsContainer/VBoxContainer/TabContainer" unique_id=54067639]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="SettingsBackButton" type="Button" parent="PauseScreen/SettingsContainer/VBoxContainer" unique_id=946768126]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
 [connection signal="pressed" from="PauseScreen/PauseContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseScreen/PauseContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="PauseScreen/PauseContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="PauseScreen/SettingsContainer/VBoxContainer/TabContainer/Video/MarginContainer/FullscreenContainer/FullscreenCheckButton" to="." method="_on_fullscreen_check_button_toggled"]
+[connection signal="value_changed" from="PauseScreen/SettingsContainer/VBoxContainer/TabContainer/Gameplay/MarginContainer/FOVContainer/FOVSlider" to="." method="_on_fov_slider_value_changed"]
+[connection signal="pressed" from="PauseScreen/SettingsContainer/VBoxContainer/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]

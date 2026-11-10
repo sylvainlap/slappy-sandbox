@@ -5,3 +5,9 @@
 [resource]
 default_font = ExtResource("1_28x36")
 default_font_size = 32
+HBoxContainer/constants/separation = 64
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 16
+MarginContainer/constants/margin_right = 16
+MarginContainer/constants/margin_top = 16
+VBoxContainer/constants/separation = 16
