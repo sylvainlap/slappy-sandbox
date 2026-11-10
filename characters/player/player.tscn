@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ddqassqs17qll" path="res://characters/player/smooth_camera.gd" id="2_xxgcw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b886q"]
-albedo_color = Color(1, 0.2784314, 0, 1)
+albedo_color = Color(0.5019608, 0.7411765, 0.81960785, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jfg3o"]
 radius = 0.45
